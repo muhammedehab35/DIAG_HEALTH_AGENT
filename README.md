@@ -1,5 +1,3 @@
-# RAG Diagnostic AI: Practical Healthcare Assistant
-
 Welcome! This project is a real-world demonstration of how advanced AI can assist both patients and healthcare professionals in understanding symptoms, getting recommendations, and learning the reasoning behind AI-powered diagnoses. Built with a focus on robustness, privacy, and maintainability, this system is ready for both research and production use.
 
 ## Table of Contents
