@@ -1,0 +1,279 @@
+/* styles.css - Custom Streamlit UI styles for RAG Diagnostic AI Assistant */
+
+/* General App Background & Typography */
+html, body, .main {
+    background: linear-gradient(135deg, #232526 0%, #414345 100%) !important;
+    color: #f0f0f0 !important;
+}
+
+/* Fade-step onboarding animation */
+.fade-step {
+    animation: fadeInStep 0.5s;
+    -webkit-animation: fadeInStep 0.5s;
+}
+@keyframes fadeInStep {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Chat textarea sizing and scroll behavior */
+textarea {
+    min-height: 68px !important;
+    max-height: 240px !important;
+    resize: vertical !important;
+    overflow-y: auto !important;
+}
+
+
+/* Hero Banner and Stepper */
+.hero {
+    background: linear-gradient(90deg, #1f8ef1 0%, #5f2c82 100%);
+    border-radius: 24px;
+    box-shadow: 0 6px 32px 0 rgba(31,142,241,0.10), 0 1.5px 6px 0 rgba(0,0,0,0.04);
+    color: #fff;
+    padding: 2.2em 1.5em 1.6em 1.5em;
+    margin-bottom: 2.2em;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero-title {
+    font-size: 2.1em;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.3em;
+}
+.hero-tagline {
+    font-size: 1.13em;
+    font-weight: 400;
+    opacity: 0.96;
+    margin-bottom: 0.7em;
+}
+.stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    margin: 1.3em 0 0.3em 0;
+}
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.05em;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0.7;
+    transition: opacity 0.2s, color 0.2s;
+}
+.step.active {
+    color: #ffe082;
+    opacity: 1;
+    font-size: 1.13em;
+    text-shadow: 0 2px 8px #1f8ef1;
+}
+.step-circle {
+    background: #fff;
+    color: #1f8ef1;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2em;
+    margin-bottom: 0.3em;
+    box-shadow: 0 2px 6px rgba(31,142,241,0.13);
+    border: 2.5px solid #ffe082;
+    transition: border 0.2s, background 0.2s;
+}
+.step:not(.active) .step-circle {
+    background: #f0f0f0;
+    color: #8ec7fa;
+    border: 2.5px solid #8ec7fa;
+}
+@media (max-width: 900px) {
+    .hero { padding: 1.3em 0.6em 1.1em 0.6em; }
+    .hero-title { font-size: 1.4em; }
+    .stepper { gap: 1.1em; }
+}
+
+/* App Shell (Bottom Navigation) */
+.app-shell {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    background: rgba(31,142,241,0.97);
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    box-shadow: 0 -4px 24px 0 rgba(31,142,241,0.10), 0 -1.5px 6px 0 rgba(0,0,0,0.03);
+    z-index: 999;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.3em 0 0.1em 0;
+    backdrop-filter: blur(10px);
+}
+.app-shell-btn {
+    flex: 1 1 0;
+    text-align: center;
+    color: #fff;
+    opacity: 0.7;
+    font-size: 1.25em;
+    font-weight: 600;
+    padding: 0.5em 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: opacity 0.2s, color 0.2s;
+    border-radius: 8px 8px 0 0;
+}
+.app-shell-btn.active {
+    color: #ffe082;
+    opacity: 1;
+    border-bottom: 3px solid #ffe082;
+    background: rgba(255,255,255,0.08);
+}
+@media (min-width: 900px) {
+    .app-shell { display: none; }
+}
+
+/* Chat Textarea (dynamic height, clean style) */
+textarea {
+    min-height: 68px !important;
+    max-height: 240px !important;
+    resize: vertical !important;
+    overflow-y: auto !important;
+    font-size: 1.1em;
+    border-radius: 12px;
+    border: 1.5px solid #b6d7fa;
+    background: rgba(255,255,255,0.95);
+    color: #fff !important;
+    box-shadow: 0 1.5px 8px 0 rgba(31,142,241,0.04);
+    padding: 0.8em 1.1em;
+    transition: border 0.18s, box-shadow 0.18s, background 0.18s, color 0.18s;
+}
+textarea:focus {
+    border: 2px solid #1f8ef1 !important;
+    box-shadow: 0 2px 12px 0 rgba(31,142,241,0.13);
+    background: #fff;
+    color: #232526 !important;
+    outline: none;
+}
+textarea::placeholder,
+textarea:focus::placeholder {
+    color: #888 !important;
+    opacity: 1 !important;
+}
+
+
+/* Chat Bubbles */
+.stChatMessage {
+    border-radius: 14px;
+    margin-bottom: 0.7em;
+    word-break: break-word;
+    font-size: 1.04em;
+}
+
+/* Responsive columns for profile/chat/results */
+@media (max-width: 900px) {
+    .stTabs { flex-direction: column !important; }
+}
+
+/* General improvements */
+.stButton>button,
+.stButton>button[data-testid],
+.stButton>button:active,
+.stButton>button:focus {
+    font-size: 1.09em;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #1f8ef1 0%, #5f2c82 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: 0 2px 8px 0 rgba(31,142,241,0.06);
+    transition: background 0.18s, box-shadow 0.18s, color 0.18s;
+}
+.stButton>button:hover,
+.stButton>button[data-testid]:hover,
+.stButton>button:active,
+.stButton>button:focus {
+    background: #5f2c82 !important;
+    color: #fff !important;
+    box-shadow: 0 4px 16px 0 rgba(31,142,241,0.10);
+}
+
+/* --- MAIN ACTION BUTTONS: Always gradient --- */
+.stButton > button[data-testid*="submit_symptom"],
+.stButton > button[data-testid*="report_issue"],
+.stButton > button[data-testid*="send"] {
+    background: linear-gradient(90deg, #1f8ef1 0%, #5f2c82 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: 0 2px 8px 0 rgba(31,142,241,0.06);
+    font-weight: 600;
+    transition: background 0.18s, box-shadow 0.18s, color 0.18s;
+}
+.stButton > button[data-testid*="submit_symptom"]:hover,
+.stButton > button[data-testid*="report_issue"]:hover,
+.stButton > button[data-testid*="send"]:hover {
+    background: #5f2c82 !important;
+    color: #fff !important;
+}
+
+/* --- UTILITY BUTTONS: Neutral/outlined --- */
+.stButton > button:not([data-testid*="submit_symptom"]):not([data-testid*="report_issue"]):not([data-testid*="send"]) {
+    background: #232526 !important;
+    color: #eee !important;
+    border: 1.5px solid #444 !important;
+    box-shadow: none !important;
+    font-weight: 500;
+    transition: background 0.18s, color 0.18s, border 0.18s;
+}
+.stButton > button:not([data-testid*="submit_symptom"]):not([data-testid*="report_issue"]):not([data-testid*="send"]):hover,
+.stButton > button:not([data-testid*="submit_symptom"]):not([data-testid*="report_issue"]):not([data-testid*="send"]):focus {
+    background: #333 !important;
+    color: #fff !important;
+    border: 1.5px solid #1f8ef1 !important;
+}
+
+
+
+
+.utility-btn {
+    background: #232526 !important;
+    color: #eee !important;
+    border: 1.5px solid #444 !important;
+    box-shadow: none !important;
+    font-weight: 500;
+    transition: background 0.18s, color 0.18s, border 0.18s;
+}
+.utility-btn:hover, .utility-btn:focus {
+    background: #333 !important;
+    color: #fff !important;
+    border: 1.5px solid #1f8ef1 !important;
+}
+
+/* Footer & Disclaimer */
+.footer {
+    margin: 2.5em 0 0 0;
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 0.98em;
+    padding-bottom: 2em;
+}
+.footer a {
+    color: #8ec7fa;
+    text-decoration: underline;
+    margin: 0 0.5em;
+}
+.disclaimer {
+    background: rgba(255, 230, 0, 0.13);
+    color: #b87e00;
+    border-radius: 8px;
+    padding: 0.7em 1em;
+    font-size: 1.01em;
+    margin-bottom: 1.3em;
+    text-align: center;
+    font-weight: 500;
+}

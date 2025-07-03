@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.env/
+.venv/
+ENV/
+env.bak/
+
+# Streamlit
+.streamlit/config.toml
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# VSCode/IDE
+.vscode/
+.idea/
+
+# Tests
+htmlcov/
+.coverage
+.tox/
+
+# SQLite/DB
+*.db
+*.sqlite3
+
+# System
+Thumbs.db
+
+# Node/npm (if any frontend tooling)
+node_modules/
+
+# Others
+*.bak
+*.swp

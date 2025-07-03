@@ -1,0 +1,7 @@
+streamlit
+openai
+pandas
+numpy>=1.26,<2  # Pin to <2.0 until torch/sentence-transformers support numpy 2.x
+sentence-transformers
+scikit-learn
+pytest
